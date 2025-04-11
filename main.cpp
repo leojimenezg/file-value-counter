@@ -2,7 +2,9 @@
 #include <fstream>
 
 const std::string file_name = "file.txt";
-const std::string key_word = "* Horas:";
+const char key_first_symbol = '*';
+const char key_symbol_after = ':';
+const int extra_space_after = 2;
 
 std::ifstream file;
 int total_hours;
@@ -18,10 +20,14 @@ void get_and_search_file_content()
     std::string line;
     while (getline(file, line))
     {
-        if (line.front() == key_word[0])
+        if (line.front() == key_first_symbol)
         {
-            std::size_t position = line.find_last_of(key_word);
-            std::cout << line[position] << '\n';
+            int position = line.find(key_symbol_after) + extra_space_after;
+            std::string content_left = line.substr(position);
+            if (content_left.size() < 2)
+            {
+                total_hours += std::stoi(content_left);
+            }
         }
     }
 }
@@ -35,5 +41,6 @@ int main()
 {
     initialize_variables();
     get_and_search_file_content();
+    show_total_hours();
     return 0;
 }
