@@ -3,15 +3,14 @@
 
 const std::string file_name = "file.txt";
 const std::string key_word = "* Horas:";
-const std::string units = "hrs";
 
 std::ifstream file;
-int total_values;
+int total_hours;
 
 void initialize_variables()
 {
     file.open(file_name);
-    total_values = 0;
+    total_hours = 0;
 }
 
 void get_and_search_file_content()
@@ -27,9 +26,9 @@ void get_and_search_file_content()
     }
 }
 
-void show_total_values()
+void show_total_hours()
 {
-    std::cout << "Total " << units << ": " << total_values << '\n';
+    std::cout << "Total hours: " << total_hours << '\n';
 }
 
 int main()
