@@ -15,7 +15,7 @@ void initialize_variables()
     total_hours = 0;
 }
 
-void get_and_search_file_content()
+void search_file_content()
 {
     std::string line;
     while (getline(file, line))
@@ -40,7 +40,7 @@ void show_total_hours()
 int main()
 {
     initialize_variables();
-    get_and_search_file_content();
+    search_file_content();
     show_total_hours();
     return 0;
 }
