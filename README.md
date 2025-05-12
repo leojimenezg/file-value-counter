@@ -23,14 +23,14 @@ Open your prefered terminal and clone the project to your local machine.
     ```
 3. **Build the project**
 Choose the compilation method that applies to your setup.
-* If you compile using GCC:
-    ```bash
-    g++ -std=c++20 main.cpp -o main
-    ```
-* If you compile using Clang:
-    ```bash
-    clang++ -std=c++20 main.cpp -o main
-    ```
+    * If you compile using GCC:
+        ```bash
+        g++ -std=c++20 main.cpp -o main
+        ```
+    * If you compile using Clang:
+        ```bash
+        clang++ -std=c++20 main.cpp -o main
+        ```
 4. **Run the application**
 Finally, execute the generated object file to launch the File Hour Counter Program.
     ```bash
