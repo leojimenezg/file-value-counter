@@ -1,4 +1,4 @@
-# File Hour Counter
+# File Value Counter
 
 A lightweight C++ program that reads `.txt` files, scans for time values following a custom key symbol, and calculates the total sum of the values based on a defined pattern.
 
@@ -15,11 +15,11 @@ Before anything else, make sure you have installed **C++20** (or newer) and a co
 1. **Clone the repository:**
 Open your prefered terminal and clone the project to your local machine.
     ```bash
-    git clone https://github.com/LeoJimenezG/file-hour-counter-cpp.git
+    git clone https://github.com/LeoJimenezG/file-value-counter.git
     ```
 2. **Navigate into the project directory:**
     ```bash
-    cd file-hour-counter-cpp
+    cd file-value-counter
     ```
 3. **Build the project**
 Choose the compilation method that applies to your setup.
