@@ -1,46 +1,54 @@
+#include <exception>
 #include <iostream>
 #include <fstream>
 
-const std::string file_name = "file.txt";
-const char key_first_symbol = '*';
-const char key_symbol_after = ':';
-const int extra_space_after = 2;
+#define PATH "src/file.txt"
+#define KEY_FIRST_SYMBOL '*'
+#define KEY_AFTER_SYMBOL ':'
+#define EXTRA_SPACE_AFTER 1
 
-std::ifstream file;
-int total_hours;
+int TOTAL;
 
-void initialize_variables()
-{
-    file.open(file_name);
-    total_hours = 0;
-}
-
-void search_file_content()
-{
+void search_file_content() {
+    std::fstream file;
+    file.open(PATH);
+    if (!file.is_open()) {
+        TOTAL = 0;
+        return;
+    }
     std::string line;
-    while (getline(file, line))
-    {
-        if (line.front() == key_first_symbol)
-        {
-            int position = line.find(key_symbol_after) + extra_space_after;
-            std::string content_left = line.substr(position);
-            if (content_left.size() < 2)
-            {
-                total_hours += std::stoi(content_left);
+    while (getline(file, line)) {
+        if (line.empty()) {
+            continue;
+        }
+        int position = 0;
+        if (line.front() == KEY_FIRST_SYMBOL) {
+            size_t index = line.find(KEY_AFTER_SYMBOL);
+            if (index == std::string::npos) {
+                continue;
+            }
+            position = index + EXTRA_SPACE_AFTER + 1;
+        }
+        if (position != 0) {
+            std::string content_after = line.substr(position);
+            if (content_after.size() <= 2) {
+                try {
+                    TOTAL += std::stoi(content_after);
+                } catch (const std::exception) {
+                    continue;
+                }
             }
         }
     }
+    file.close();
 }
 
-void show_total_hours()
-{
-    std::cout << "Total hours: " << total_hours << '\n';
+void show_total() {
+    std::cout << "Total hours: " << TOTAL << '\n';
 }
 
-int main()
-{
-    initialize_variables();
+int main() {
     search_file_content();
-    show_total_hours();
+    show_total();
     return 0;
 }
