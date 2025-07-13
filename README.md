@@ -15,7 +15,7 @@ Before anything else, make sure you have installed **C++20** (or newer) and a co
 1. **Clone the repository:**
 Open your prefered terminal and clone the project to your local machine.
     ```bash
-    git clone https://github.com/LeoJimenezG/file-value-counter.git
+    git clone https://github.com/leojimenezg/file-value-counter.git
     ```
 2. **Navigate into the project directory:**
     ```bash
@@ -25,16 +25,16 @@ Open your prefered terminal and clone the project to your local machine.
 Choose the compilation method that applies to your setup.
     * If you compile using GCC:
         ```bash
-        g++ -std=c++20 main.cpp -o main
+        g++ -std=c++20 src/main.cpp -o src/main
         ```
     * If you compile using Clang:
         ```bash
-        clang++ -std=c++20 main.cpp -o main
+        clang++ -std=c++20 src/main.cpp -o src/main
         ```
 4. **Run the application**
 Finally, execute the generated object file to launch the File Hour Counter Program.
     ```bash
-    ./main
+    ./src/main
     ```
 
 ---
